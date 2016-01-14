@@ -1,0 +1,67 @@
+.sisalto {
+    margin-bottom: 20px;
+}
+
+.wrapper {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 50em;
+}
+
+.hakupalkki {    
+    background-color: #E7E7E7;
+    padding: 0.5em 0.5em 3em 0.5em;    
+    border-radius: 10px; 
+    width: 20em; 
+    margin-right: 1em;
+    display: block;
+    float: left;
+}
+
+.fill {
+    width: 100%;
+}
+
+.hakudiv {
+    margin-bottom: 0.5em;
+}
+
+.hakupalkki .submit {
+    margin: 1em 0em;
+}
+.hakutulokset {
+    float: none; 
+    overflow: hidden;
+}
+
+.hakutulokset ul {
+    overflow: auto;
+    max-height: 44.5em;
+    float: none; 
+}
+
+.hakutulokset ul li {
+    padding: 0em 1em;
+}
+
+#time-search-group button {
+    padding: 6px 6px;
+    width: 4.5em;
+}
+.hakupalkki hr {
+    border-color: #CBC3C3;
+}
+
+.right-border {
+    padding-right: 0.5em;
+    border-right: 1px solid transparent;
+    border-color: #E7E7E7;
+}
+
+footer {
+    padding: 10px 0px;
+    border-top: 1px solid transparent;
+    border-color: #E7E7E7;
+    background-color: #F8F8F8;
+}

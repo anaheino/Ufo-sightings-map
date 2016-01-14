@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<!-- Kartan .css- ja .js-tiedostot -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
+{% endblock %}
+{% block content %}
+<p>Map shows the density of sightings in each state.</p>
+
+<div id ="map"> {% include 'mappi.html' %}</div>
+<hr>
+
+<div class="row-fluid">
+    <div class="span6">
+        <label>States with Most UFOs</label>
+        <a href="static/data/osavaltiot_chart.svg" class="thumbnail">
+        <img src="static/data/osavaltiot_chart.svg" alt="Top States" />
+        </a>
+    </div>
+    <div class="span6">
+        <label>Cities with Most UFOs</label>
+        <a href="static/data/kaupungit_chart.svg" class="thumbnail">
+        <img src="static/data/kaupungit_chart.svg" alt="Top Cities" />
+        </a>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span6">
+        <label>UFOs per Year</label>
+        <a href="static/data/vuodet_chart.svg" class="thumbnail">
+        <img src="static/data/vuodet_chart.svg" alt="UFOs per Year"/>
+        </a>
+    </div>
+    <div class="span6">
+        <label>UFOs per Month</label>
+        <a href="static/data/kuukaudet_chart.svg" class="thumbnail">
+        <img src="static/data/kuukaudet_chart.svg" alt="UFOs per Month" />
+        </a>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span6">
+        <label>UFOs per Weekday</label>
+        <a href="static/data/paivat_chart.svg" class="thumbnail">
+        <img src="static/data/paivat_chart.svg" alt="UFOs per Weekday"/>
+        </a>
+    </div>
+    <div class="span6">
+        <label>UFOs per Time of Day</label>
+        <a href="static/data/tunnit_chart.svg" class="thumbnail">
+        <img src="static/data/tunnit_chart.svg" alt="UFOs per Time of Day" />
+        </a>
+    </div>
+</div>
+{% endblock %}

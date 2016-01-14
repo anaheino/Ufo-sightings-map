@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<!-- Kartan .css- ja .js-tiedostot -->
+<link rel="stylesheet" type="text/css" href="https://rawgit.com/andrewgiessel/leafletstuff/master/leaflet.css">
+<link rel="stylesheet" type="text/css" href="https://rawgit.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css">
+<link rel="stylesheet" type="text/css" href="https://birdage.github.io/Leaflet.awesome-markers/dist/leaflet.awesome.rotate.css">
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+<script type="text/javascript" src="https://rawgithub.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster-src.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
+{% endblock %}
+{% block content %}
+<div id = "mappi"> {% include 'mappi.html' %}</div>
+<hr>
+<div class="row-fluid">
+  <div class="span8 right-border">
+  <h2>Summary</h2>
+    <p><label>Date & Time:</label> {{ report.date }} {{ report.time }}</p>
+    <p><label>Location:</label> {{ report.city }} {{ report.state }} {{ report.country }}</p>
+    <p><label>Shape:</label> {{ report.shape }}</p>
+    <p><label>Duration:</label> {{ report.duration }}</p>
+    {% for kappale in desc %}
+    <p>{{ kappale }}</p>
+    {% endfor %}
+    <p><a href="{{ report.url }}">Original report</a></p>
+  </div>
+
+  <div class="span4">{% include 'havaintolista.html' %}</div>
+</div>
+{% endblock %}

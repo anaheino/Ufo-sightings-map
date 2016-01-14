@@ -1,0 +1,9 @@
+<div class="hakutulokset">
+    <h2>{{ subtitle }}</h2>
+    <p>Showing {{ hakutulokset|length }} reported sightings</p>
+    <ul class="list-unstyled">
+        {% for tulos in hakutulokset %}
+        <li><a href="/report/{{ tulos.id }}">{{ tulos.date }} {{ tulos.time }} {{ tulos.city }} {{ tulos.state }} {{ tulos.country }}</a></li>
+        {% endfor %}
+    </ul>
+</div>

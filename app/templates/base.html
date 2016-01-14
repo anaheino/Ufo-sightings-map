@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% block head %}
+  {% if title %}
+  <title>{{ title }}</title>
+  {% else %}
+  <title>Welcome to ufo discoveries</title>
+  {% endif %}
+  <link rel="stylesheet" type="text/css" href="../static/css/omat-tyylit.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/bootstrap-3.3.2.min.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/bootstrap-responsive.css">
+
+  {% endblock %}
+</head>
+<body>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul class=flashes>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endwith %}
+  <nav class="navbar navbar-default">
+    <div class="wrapper">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Home</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/statistics">Statistics</a></li>
+          <!--li class="active"<a href="/statisticsnopop">Statistics without population</a></li-->
+          <li class="active"><a href="/about">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav> 
+  <div class="sisalto wrapper">
+    <h1>{{ title }}</h1>
+    {% block content %}{% endblock %}
+  </div>
+  {% if title!="About UFO-reports" %}
+  <footer class="footer">
+    <div class="wrapper">
+      <p>All UFO reports are copyrighted property of the <a href="http://www.nuforc.org">National UFO Reporting Center</a>. This application is for personal use only.</p>
+    </div>
+  </footer>
+  {% endif %}
+</body>
+</html>

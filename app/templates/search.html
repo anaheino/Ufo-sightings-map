@@ -1,0 +1,181 @@
+<div class="hakupalkki">
+    <!-- Multiselect dropdown: http://davidstutz.github.io/bootstrap-multiselect/ -->
+    <!-- Bootstrap datepicker: https://bootstrap-datepicker.readthedocs.org/en/latest/ -->
+
+    <h2>Filter Reports</h2>
+
+    <form name="search-form" action="/" method="POST">
+
+        <div class="hakudiv">
+            <input type="submit" class="btn btn-primary submit" value="Apply Filters">
+        </div>
+
+        <div class="input-group hakudiv">
+             <label for="loc-search">Enter locations</label>
+             <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title='You may search both cities and countries. Use comma to separate different search terms. E.g "Los Angeles, Finland"'></span>
+         <input id="loc-search" name="loc-search" type="text" class="form-control">
+     </div>
+
+     <div class="input-group hakudiv">
+            <label for="desc-search">Search from description</label>
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title='Search from the text fields where witnesses describe their sightings. All words will be included in the search, e.g. "flying saucer" or "anal probing".'></span>
+        <input id="desc-search" name="desc-search" type="text" class="form-control">
+    </div>
+
+    <hr>
+
+    <div class="hakudiv" id="date-start">
+            <label for="startdate">Set starting date</label>
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title='Specify a date for the earliest sightings to be included in the search results.'></span>
+        <div class="input-group date">
+            <input id="startdate" name="startdate" type="text" class="form-control">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-th"></i>
+            </span>
+        </div>
+    </div>
+
+    <div class="hakudiv" id="date-end">
+            <label for="enddate">Set ending date</label>
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title='Specify a date for the latest sightings to be included in the search results.'></span>
+        <div class="input-group date">
+            <input id="enddate" name="enddate" type="text" class="form-control">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-th"></i>
+            </span>
+        </div>   
+    </div>
+    <hr>
+
+    <div class="btn-group hakudiv">
+            <label for="month-search">Filter by month</label>
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title='Select sightings that occurred on specified months. You may select multiple options.'></span>
+        <select name="month-search" id="month-search" multiple="multiple">
+            <option value="01">January</option>
+            <option value="02">February</option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">June</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+        </select> 
+        <input type="button" id="month-search-reset" class="btn btn-default" value="Reset">
+    </div>
+
+    <div class="btn-group hakudiv">
+            <label for="weekday-search">Filter by weekday</label>
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title='Select sightings that occurred on specified weekdays. You may select multiple options.'></span>
+        <select name="weekday-search" id="weekday-search" multiple="multiple">
+        </select> 
+        <input type="button" id="weekday-search-reset" class="btn btn-default" value="Reset">
+    </div>
+
+    <div class="btn-group hakudiv">
+            <label for="shape-search">Filter by shape</label>
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title='Filter sightings based on their reported shape. You may select multiple options.'></span>
+        <select name="shape-search" id="shape-search" multiple="multiple">
+            <option value='unspecified,unknown,other,'>Unspecified</option>
+            <!--option value='changed'>changed</option-->
+            <option value='changing,changed'>Changing</option>
+            <option value='chevron'>Chevron</option>
+            <option value='cigar'>Cigar</option>
+            <option value='circle'>Circle</option>
+            <option value='cone'>Cone</option>
+            <option value='crescent'>Crescent</option>
+            <option value='cross'>Cross</option>
+            <option value='cylinder'>Cylinder</option>
+            <option value='delta'>Delta</option>
+            <option value='diamond'>Diamond</option>
+            <option value='disk'>Disk</option>
+            <option value='dome'>Dome</option>
+            <option value='egg'>Egg</option>
+            <option value='fireball'>Fireball</option>
+            <option value='flare'>Flare</option>
+            <option value='flash'>Flash</option>
+            <option value='formation'>Formation</option>
+            <option value='hexagon'>Hexagon</option>
+            <option value='light'>Light</option>
+            <!--option value='other'>Other</option-->
+            <option value='oval'>Oval</option>
+            <option value='pyramid'>Pyramid</option>
+            <option value='rectangle'>Rectangle</option>
+            <option value='round'>Round</option>
+            <option value='sphere'>Sphere</option>
+            <option value='teardrop'>Teardrop</option>
+            <option value='triangle,triangular'>Triangle</option>
+            <!--option value='triangular'>Triangular</option-->
+            <!--option value='unknown'>Unknown</option-->
+        </select> 
+        <input type="button" id="shape-search-reset" class="btn btn-default" value="Reset">
+    </div>
+</form>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#month-search').multiselect({
+            maxHeight: 300,
+            numberDisplayed: 2,
+            buttonWidth: '14em'
+        });
+        $('#month-search-reset').on('click', function() {
+            $('#month-search option:selected').each(function() {
+                $(this).prop('selected', false);
+            })
+            $('#month-search').multiselect('refresh');
+        });
+
+        $('#weekday-search').multiselect({
+            maxHeight: 300,
+            numberDisplayed: 2,
+            buttonWidth: '14em'
+        });
+        $('#weekday-search-reset').on('click', function() {
+            $('#weekday-search option:selected').each(function() {
+                $(this).prop('selected', false);
+            })
+            $('#weekday-search').multiselect('refresh');
+        });
+
+        $('#shape-search').multiselect({
+            maxHeight: 300,
+            numberDisplayed: 2,
+            buttonWidth: '14em'
+        });
+        $('#shape-search-reset').on('click', function() {
+            $('#shape-search option:selected').each(function() {
+                $(this).prop('selected', false);
+            })
+            $('#shape-search').multiselect('refresh');   
+        });
+
+        $('#date-start .input-group.date').datepicker({
+            startView: 1,
+            clearBtn: true,
+            autoclose: true
+        });
+
+        $('#date-end .input-group.date').datepicker({
+            startView: 1,
+            clearBtn: true,
+            autoclose: true
+        });
+
+        //Luetaan multiselectien arvot.
+        var options = [
+        {label: 'Monday', value: '1'},
+        {label: 'Tuesday', value: '2'},
+        {label: 'Wednesday', value: '3'},
+        {label: 'Thursday', value: '4'},
+        {label: 'Friday', value: '5'},
+        {label: 'Saturday', value: '6'},
+        {label: 'Sunday', value: '0'}
+        ];
+        $('#weekday-search').multiselect('dataprovider', options);
+    });
+</script>
+

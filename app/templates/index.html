@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block head %}
+{{ super() }}
+<!-- Hakuformin .css ja .js -->
+<link rel="stylesheet" type="text/css" href="../static/css/prettify.css">
+<link rel="stylesheet" type="text/css" href="../static/css/datepicker3.css">
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap-multiselect.css">
+
+<script type="text/javascript" src="../static/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap-3.3.2.min.js"></script>
+<script type="text/javascript" src="../static/js/prettify.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap-multiselect.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    window.prettyPrint() && prettyPrint();
+});
+</script>
+
+<!-- Kartan .css- ja .js-tiedostot -->
+<link rel="stylesheet" type="text/css" href="https://rawgit.com/andrewgiessel/leafletstuff/master/leaflet.css">
+<link rel="stylesheet" type="text/css" href="https://rawgit.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css">
+<link rel="stylesheet" type="text/css" href="https://birdage.github.io/Leaflet.awesome-markers/dist/leaflet.awesome.rotate.css">
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+<script type="text/javascript" src="https://rawgithub.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster-src.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
+{% endblock %}
+
+{% block content %}
+<p>Welcome to UFO-sightings! Search and examine over 100.000 reports spanning several decades.</p>
+<div id="mappi"> {% include 'mappi.html' %}</div>
+<hr>
+<div class="row-fluid">
+{% include 'search.html' %}
+{% include 'havaintolista.html' %}
+</div>
+{% endblock %}

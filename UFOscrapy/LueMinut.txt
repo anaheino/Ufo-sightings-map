@@ -1,0 +1,9 @@
+Scrapyn asennusohjeet: http://doc.scrapy.org/en/latest/intro/install.html
+
+Scrapyn olennaisimmat tiedostot:
+items.py: määritellään haun tuottamien itemien kentät. Item on samanlainen tietotyyppi kuin dictionary.
+spider.py: käy läpi urleja, hakee halutut tiedot sivulta ja luo itemeja.
+pipelines.py: luomisensa jälkeen item vedetään pipelinen läpi. Pipelinessa käsitellään itemin kenttiin syötettyjä tietoja (stringien parsiminen jne.)
+settings.py: spiderin asetukset (esim. nopeus ja tulosten tallennus haluttuun tiedostoon)
+
+Projektin spider käynnistetään menemällä komentotulkilla UFOscrapy kansioon ja komentamalla "scrapy crawl ufo". Ajon aikana haun voi keskeyttää näppäinyhdistelmällä ctrl - c. Haun tulokset kirjataan results.csv -tiedostoon.
